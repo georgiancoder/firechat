@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {MessengerService} from '../services/messenger.service';
 
 @Component({
   selector: 'app-friend-list',
@@ -6,8 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./friend-list.component.css']
 })
 export class FriendListComponent implements OnInit {
+  @Input() users;
+  constructor(public messengerService: MessengerService) { }
 
-  constructor() { }
+  selectUser(user) {
+    this.messengerService.messengerState.next({
+      to: user
+    });
+  }
 
   ngOnInit() {
   }
