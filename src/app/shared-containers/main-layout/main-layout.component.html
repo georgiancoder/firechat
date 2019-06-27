@@ -1,0 +1,14 @@
+<div class="wrapper">
+  <header>
+    messenger
+    <div class="to">
+
+    </div>
+    <div class="profile">
+      <button (click)="authService.SignOut()">Sign Out</button>
+    </div>
+  </header>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+</div>

@@ -1,0 +1,33 @@
+<div class="register">
+  <form [formGroup]="registerForm" (ngSubmit)="register()">
+    <input type="text" placeholder="firstName" formControlName="firstName">
+    <input type="text" placeholder="lastName" formControlName="lastName">
+    <input type="email" placeholder="email" formControlName="email">
+    <input type="password" placeholder="password" formControlName="password">
+    <label>Birthday</label>
+    <div class="formGroup">
+      <select formControlName="month">
+        <option value="">month</option>
+        <option *ngFor="let month of months; let i = index" value="{{i}}">{{month}}</option>
+      </select>
+      <select formControlName="day">
+        <option value="">day</option>
+        <option *ngFor="let day of days" value="{{day}}">{{day}}</option>
+      </select>
+      <select formControlName="year">
+        <option value="">year</option>
+        <option *ngFor="let year of years" value="{{year}}">{{year}}</option>
+      </select>
+    </div>
+    <label>Gender</label>
+    <div class="formGroup">
+      <input type="radio" id="female" value="female" name="gender" formControlName="gender">
+      <label for="female">Female</label>
+      <input type="radio" name="gender" value="male" id="male" formControlName="gender">
+      <label for="male">Male</label>
+      <input type="radio" name="gender" value="other" formControlName="gender" id="other">
+      <label for="other">Other</label>
+    </div>
+    <button type="submit">Sign Up</button>
+  </form>
+</div>
